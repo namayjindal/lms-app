@@ -31,8 +31,8 @@ export default function AssignmentsPage() {
     const fetchData = async () => {
       try {
         const [assignmentsRes, coursesRes] = await Promise.all([
-          axios.get('http://localhost:3001/api/assignments'),
-          axios.get('http://localhost:3001/api/courses')
+          axios.get('/api/assignments'),
+          axios.get('/api/courses')
         ]);
 
         setAssignments(assignmentsRes.data);

@@ -15,7 +15,6 @@ interface AssignmentCardProps {
 
 const AssignmentCard = ({ 
   id, 
-  courseId, 
   title, 
   description, 
   dueDate, 

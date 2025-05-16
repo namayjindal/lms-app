@@ -1,15 +1,5 @@
-import express from 'express';
-import cors from 'cors';
-
-const app = express();
-const PORT = process.env.PORT || 3001;
-
-// Middleware
-app.use(cors());
-app.use(express.json());
-
 // Mock data for NYU Student
-const courses = [
+export const courses = [
   {
     id: 1,
     code: 'CSCI-UA 101',
@@ -62,7 +52,7 @@ const courses = [
   }
 ];
 
-const announcements = [
+export const announcements = [
   {
     id: 1,
     courseId: 1,
@@ -86,7 +76,7 @@ const announcements = [
   }
 ];
 
-const assignments = [
+export const assignments = [
   {
     id: 1,
     courseId: 1,
@@ -136,7 +126,7 @@ const assignments = [
   }
 ];
 
-const discussions = [
+export const discussions = [
   {
     id: 1,
     courseId: 1,
@@ -177,7 +167,7 @@ const discussions = [
   }
 ];
 
-const grades = [
+export const grades = [
   {
     courseId: 1,
     assignments: [
@@ -223,40 +213,4 @@ const grades = [
     ],
     currentGrade: 'A-'
   }
-];
-
-// Routes
-app.get('/api/courses', (req, res) => {
-  res.json(courses);
-});
-
-app.get('/api/courses/:id', (req, res) => {
-  const course = courses.find(c => c.id === parseInt(req.params.id));
-  if (!course) return res.status(404).json({ message: 'Course not found' });
-  res.json(course);
-});
-
-app.get('/api/announcements', (req, res) => {
-  res.json(announcements);
-});
-
-app.get('/api/assignments', (req, res) => {
-  res.json(assignments);
-});
-
-app.get('/api/discussions', (req, res) => {
-  res.json(discussions);
-});
-
-app.get('/api/grades', (req, res) => {
-  res.json(grades);
-});
-
-// Start server if not imported
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-}
-
-export default app; 
+]; 

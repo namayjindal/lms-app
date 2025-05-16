@@ -47,9 +47,9 @@ export default function Home() {
     const fetchData = async () => {
       try {
         const [coursesRes, announcementsRes, assignmentsRes] = await Promise.all([
-          axios.get('http://localhost:3001/api/courses'),
-          axios.get('http://localhost:3001/api/announcements'),
-          axios.get('http://localhost:3001/api/assignments')
+          axios.get('/api/courses'),
+          axios.get('/api/announcements'),
+          axios.get('/api/assignments')
         ]);
 
         setCourses(coursesRes.data);
@@ -159,7 +159,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <header className="mb-10">
           <h1 className="text-4xl font-bold mb-2">Welcome back, <span className="gradient-text">Noah</span></h1>
-          <p className="text-gray-600 dark:text-gray-300">Here's what's happening with your courses today.</p>
+          <p className="text-gray-600 dark:text-gray-300">Here&apos;s what&apos;s happening with your courses today.</p>
         </header>
 
         {loading ? (

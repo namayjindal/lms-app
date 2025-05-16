@@ -37,8 +37,8 @@ export default function DiscussionsPage() {
     const fetchData = async () => {
       try {
         const [discussionsRes, coursesRes] = await Promise.all([
-          axios.get('http://localhost:3001/api/discussions'),
-          axios.get('http://localhost:3001/api/courses')
+          axios.get('/api/discussions'),
+          axios.get('/api/courses')
         ]);
 
         setDiscussions(discussionsRes.data);

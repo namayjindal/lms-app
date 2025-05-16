@@ -21,7 +21,6 @@ interface DiscussionCardProps {
 
 const DiscussionCard = ({ 
   id, 
-  courseId, 
   title, 
   content, 
   author, 
