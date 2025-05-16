@@ -1,11 +1,14 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { courses } from '../../mock-data';
 
 export async function GET(
-  request: Request,
-  context: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const course = courses.find(c => c.id === parseInt(context.params.id));
+  // Await the params before accessing the id
+  const { id } = await params;
+  
+  const course = courses.find(c => c.id === parseInt(id));
   
   if (!course) {
     return NextResponse.json(
@@ -15,4 +18,4 @@ export async function GET(
   }
   
   return NextResponse.json(course);
-} 
+}
