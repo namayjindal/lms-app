@@ -3,6 +3,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #10b981;
+  --accent: #f43f5e;
+  --accent-2: #8b5cf6;
+  --accent-3: #ec4899;
+  --gray-light: #f3f4f6;
+  --gray: #9ca3af;
+  --gray-dark: #4b5563;
 }
 
 @theme inline {
@@ -16,11 +25,51 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --gray-light: #1f2937;
+    --gray: #6b7280;
+    --gray-dark: #9ca3af;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+
+.course-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.accent-gradient {
+  background-image: linear-gradient(135deg, var(--accent-2), var(--accent-3));
+}
+
+.card-purple { border-left: 5px solid #8b5cf6; }
+.card-blue { border-left: 5px solid #3b82f6; }
+.card-green { border-left: 5px solid #10b981; }
+.card-orange { border-left: 5px solid #f97316; }
+.card-pink { border-left: 5px solid #ec4899; }
+
+.tab-active {
+  border-bottom: 3px solid var(--primary);
+  color: var(--primary);
+}
+
+.dot-purple { background-color: #8b5cf6; }
+.dot-blue { background-color: #3b82f6; }
+.dot-green { background-color: #10b981; }
+.dot-orange { background-color: #f97316; }
+.dot-pink { background-color: #ec4899; }
