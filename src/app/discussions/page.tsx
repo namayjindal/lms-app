@@ -90,7 +90,7 @@ export default function DiscussionsPage() {
             courseId: 2,
             title: 'Question about Double Integrals',
             content: 'Can someone explain how to set up the limits of integration for this problem? I\'m not sure how to approach it.',
-            author: 'Noah Singh',
+            author: 'Demo User',
             date: '2023-10-19',
             replies: []
           }

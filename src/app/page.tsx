@@ -42,6 +42,7 @@ export default function Home() {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [assignments, setAssignments] = useState<Assignment[]>([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -135,6 +136,12 @@ export default function Home() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    fetch('/api/auth/me', { credentials: 'include' })
+      .then(res => res.ok ? res.json() : null)
+      .then(data => setUser(data?.user || null));
+  }, []);
+
   const getCourseNameById = (courseId: number): string => {
     const course = courses.find(c => c.id === courseId);
     return course ? course.name : '';
@@ -154,11 +161,12 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <Navigation />
-      
       <div className="max-w-7xl mx-auto px-4 py-8">
         <header className="mb-10">
-          <h1 className="text-4xl font-bold mb-2">Welcome back, <span className="gradient-text">Noah</span></h1>
+          <h1 className="text-4xl font-bold mb-2">
+            Welcome back{user && user.name ? `, ` : '!'}
+            {user && user.name && <span className="gradient-text">{user.name.split(' ')[0]}</span>}
+          </h1>
           <p className="text-gray-600 dark:text-gray-300">Here&apos;s what&apos;s happening with your courses today.</p>
         </header>
 
